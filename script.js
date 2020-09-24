@@ -62,9 +62,12 @@ function editTodo(index){
 }
 
 function updateTodo(){
-    document.getElementById('update').classList.add('invisible')
+    if( todoInput.value !==""){
+     document.getElementById('update').classList.add('invisible')
     document.getElementById('add-todo').classList.remove('invisible')
     let updatedTodo = document.getElementById('todo-input').value
+
+    
 
     todoList = JSON.parse(localStorage.getItem('todoList'))
     todoList[document.getElementById('index').value] = updatedTodo
@@ -72,4 +75,5 @@ function updateTodo(){
     document.getElementById('index').value=""
     document.getElementById('todo-input').value =""
     displayTodo()
+    }
 }
